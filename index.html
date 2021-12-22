@@ -39,6 +39,18 @@
     }).load(function() {
       calcHeight();
     });
+    
+    $(document).ready(function () {
+
+      function reorient(e) {
+        var orientation = window.screen.orientation.type;
+        $("body > div").css("-webkit-transform", (orientation == 'landscape-primary' || orientation == 'landscape-secondary') ? "rotate(-90deg)" : "");
+      }
+    $(window).on("orientationchange",function(){
+        reorient();
+    });
+      window.setTimeout(reorient, 0);
+    });
   </script>
 </head>
 
